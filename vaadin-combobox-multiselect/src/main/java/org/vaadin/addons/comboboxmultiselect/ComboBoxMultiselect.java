@@ -217,7 +217,7 @@ public class ComboBoxMultiselect extends AbstractSelect implements
     		Container container = getContainerDataSource();
     		if (!(container instanceof BeanItemContainer) && container instanceof Indexed) {
 	    		Indexed indexed = (Indexed) container;
-	    		
+
 	    		for (Object object : (Set<Object>) getValue()) {
 	    			Item item = indexed.getItem(object);
 	    			if (item != null) {
@@ -465,7 +465,7 @@ public class ComboBoxMultiselect extends AbstractSelect implements
                 
                 if (selectedCaption.size() > 0) {
 	        		target.addAttribute("selectedCaption",
-	        				"(" + selectedCaption.size() + ") " + String.join("; ", selectedCaption));
+	        				"(" + selectedCaption.size() + ") " + join("; ", selectedCaption));
                 }
             }
             
@@ -486,6 +486,16 @@ public class ComboBoxMultiselect extends AbstractSelect implements
             isPainting = false;
         }
 
+    }
+
+    public static String join(String separator, Iterable<String> strings) {
+        StringBuilder sb = new StringBuilder();
+        String sep = "";
+        for (String s : strings) {
+            sb.append(sep).append(s);
+            sep = separator;
+        }
+        return sb.toString();
     }
 
 	private void paintItemStyle(PaintTarget target, Object itemId)

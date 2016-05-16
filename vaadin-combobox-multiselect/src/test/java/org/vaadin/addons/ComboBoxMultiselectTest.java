@@ -18,6 +18,7 @@ public class ComboBoxMultiselectTest {
 	private ComboBoxMultiselect comboBoxMultiselect;
 	private List<Object> items;
 	
+	/*
 	@Test
 	public void testAddItems() {
 		init();
@@ -85,6 +86,7 @@ public class ComboBoxMultiselectTest {
 		Assert.assertEquals(0, ((Set<Object>) comboBoxMultiselect.getValue()).size());
 		assertThat(comboBoxMultiselect.getValue(), is(new HashSet<Object>()));
 	}
+	*/
 	
 	private void init() {
 		items = new ArrayList<>();
